@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Popup1
+  - Popup2
+  - PopupClose
+  - PopupTitle
+  - Popup
   layers:
   - Default
   - TransparentFX
