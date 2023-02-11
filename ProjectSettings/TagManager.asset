@@ -9,6 +9,7 @@ TagManager:
   - PopupClose
   - PopupTitle
   - Popup
+  - Canvas
   layers:
   - Default
   - TransparentFX

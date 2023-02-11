@@ -31,8 +31,12 @@ public static class PopupManager
    
     public static void prompt(string title, string option1, string option2, string cancel, Action<int> callback)
     {
+        PopupKill();
         ActivePopup = Resources.Load("popup") as GameObject;
-        GameObject Popup = UnityEngine.Object.Instantiate(ActivePopup, new Vector3(960, 540, -2), Quaternion.identity) as GameObject;
+        GameObject Canvas = GameObject.FindGameObjectWithTag("Canvas");
+        GameObject Popup = UnityEngine.Object.Instantiate(ActivePopup, new Vector3(960, 540, -2), Quaternion.identity, Canvas.transform) as GameObject;
+        
+        
 
         GameObject.FindGameObjectWithTag("Popup1").SetActive(true);
         GameObject.FindGameObjectWithTag("Popup2").SetActive(true);

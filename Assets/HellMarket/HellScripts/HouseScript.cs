@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HouseScript : MonoBehaviour
 {
@@ -9,10 +10,21 @@ public class HouseScript : MonoBehaviour
     public Sprite EmptySprite;
     public Sprite PurchasedSprite;
     public Sprite BurnedSprite;
+    public GameObject FurnishTextObject;
+    public GameObject ValueTextObject;
+    static Text FurnishText;
+    static Text ValueText;
+
+
 
     public void Start()
     {
+        
         HousingManager.RegisterHouse(HouseId);
+        
+        ValueText = ValueTextObject.GetComponent<Text>();
+        FurnishText = FurnishTextObject.GetComponent<Text>();
+        ValueText.text = "$" + HousingManager.houses[HouseId].getValue().ToString();
     }
 
     public void Update()
@@ -32,6 +44,9 @@ public class HouseScript : MonoBehaviour
         {
             SpriteRenderer.sprite = BurnedSprite;
         }
+
+        FurnishText.text = HousingManager.houses[HouseId].FurnishLevel().ToString();
+        ValueText.text = "$" + HousingManager.houses[HouseId].CurrentValue().ToString();
 
     }
 

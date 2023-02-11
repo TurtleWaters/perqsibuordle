@@ -12,7 +12,7 @@ public class House
 
     private float currentMultiplierRange = 0.2f;
     private float currentMultiplier = 1;
-    private float Bucks = exchangeMarketLogic.Bucks;
+   
    
     
     
@@ -52,10 +52,15 @@ public class House
     {
         if (isPurchased) return false;
 
-        this.furnishLevel = 0;
-
-        isPurchased = true;
-        return true;
+            if(exchangeMarketLogic.Bucks >= currentValue)
+        {
+            exchangeMarketLogic.Bucks = exchangeMarketLogic.Bucks - currentValue;
+            this.furnishLevel = 0;
+            isPurchased = true;
+            return true;
+        }
+        return false;
+            
     }
 
     public bool sell()
@@ -63,9 +68,10 @@ public class House
         if (isPurchased == false) return false;
 
         this.furnishLevel = 0;
-
+        exchangeMarketLogic.Bucks = exchangeMarketLogic.Bucks + currentValue;
         isPurchased = false;
         isOnFire = false;
+        getValue();
         return true;
     }
 
@@ -88,10 +94,11 @@ public class House
         {
             return false;
         }
-        if (Bucks <= (currentValue * 0.2))
+        if (exchangeMarketLogic.Bucks > (currentValue * 0.2f)-1f)
         {
-            Bucks = Bucks - (currentValue * 0.2f);
+            exchangeMarketLogic.Bucks = exchangeMarketLogic.Bucks - (currentValue * 0.2f);
             furnishLevel = furnishLevel + 1;
+            getValue();
             return true;
         } else
         {

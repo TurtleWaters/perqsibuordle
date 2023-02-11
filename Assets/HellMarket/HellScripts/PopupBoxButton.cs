@@ -8,14 +8,10 @@ public class PopupBoxButton : MonoBehaviour
     public int choiceId;
 
 
-    void OnMouseOver()
+    public void ButtonClick()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            PopupManager.HandleButtonClick(choiceId);
-        }
+        PopupManager.HandleButtonClick(choiceId);
     }
-
 
 
 }
