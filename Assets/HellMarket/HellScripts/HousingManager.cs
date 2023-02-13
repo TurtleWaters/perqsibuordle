@@ -14,7 +14,7 @@ public class HousingManager
 
     public static void RegisterHouse(int houseId)
     {
-        
+        if (houses.ContainsKey(houseId)) return;
         houses.Add(houseId, new House());
     }
     

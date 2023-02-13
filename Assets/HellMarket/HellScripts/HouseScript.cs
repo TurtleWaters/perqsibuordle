@@ -15,16 +15,17 @@ public class HouseScript : MonoBehaviour
     static Text FurnishText;
     static Text ValueText;
 
-
-
-    public void Start()
+    public void Awake()
     {
-        
         HousingManager.RegisterHouse(HouseId);
-        
         ValueText = ValueTextObject.GetComponent<Text>();
         FurnishText = FurnishTextObject.GetComponent<Text>();
         ValueText.text = "$" + HousingManager.houses[HouseId].getValue().ToString();
+    }
+        
+    public void Start()
+    { 
+
     }
 
     public void Update()
