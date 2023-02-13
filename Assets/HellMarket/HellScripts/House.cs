@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class House 
 {
+
+    //its not his skull
     private bool isPurchased = false;
     private int furnishLevel = 0;
     private float currentValue = 100;
